@@ -80,6 +80,7 @@ const handleLocation = () => {
   justify-content: space-between;
   gap: 1rem;
   height: 10vh;
+  padding: 2em;
 }
 
 .form-container__item {

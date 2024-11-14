@@ -64,18 +64,19 @@ onMounted(async () => {
 
 <style>
 .view-scrollbar {
-  max-height: calc(80vh - 64px);
+  max-height: calc(80vh);
 
   @media (min-width: 640px) {
-    max-height: calc(90vh - 64px);
+    max-height: calc(90vh);
   }
   @media (min-width: 768px) {
-    max-height: calc(90vh - 64px);
+    max-height: calc(90vh);
   }
 }
 
 .characters-container__grid {
   display: grid;
+  padding: 2em;
   height: 100%;
   flex-shrink: 0;
   grid-template-columns: repeat(1, minmax(0, 1fr));
