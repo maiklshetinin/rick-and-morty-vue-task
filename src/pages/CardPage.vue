@@ -24,7 +24,6 @@ const filters = reactive({
 
 // Функция для загрузки дополнительных элементов
 const loadMoreItems = async () => {
-  // Здесь добавьте вашу логику для загрузки новых данных
   console.log("Загрузка новых данных...");
   if (nextPageUrl.value) {
     currentPage.value++;
