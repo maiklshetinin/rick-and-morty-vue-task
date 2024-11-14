@@ -68,12 +68,12 @@ onMounted(async () => {
 }
 
 .view-scrollbar {
-  max-height: calc(80vh - 2em);
+  max-height: calc(88vh - 2em);
   @media (min-width: 640px) {
-    max-height: calc(90vh - 2em);
+    max-height: calc(94vh - 2em);
   }
   @media (min-width: 768px) {
-    max-height: calc(90vh - 2em);
+    max-height: calc(94vh - 2em);
   }
 }
 
