@@ -46,7 +46,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <header>
+  <header class="header">
     <CardSearchForm ref="cardSearchForm" v-model="filters" />
   </header>
   <el-scrollbar view-class="view-scrollbar">
@@ -63,20 +63,25 @@ onMounted(async () => {
 </template>
 
 <style>
-.view-scrollbar {
-  max-height: calc(80vh);
+.header {
+  background-color: var(--el-color-primary-light-9);
+}
 
+.view-scrollbar {
+  max-height: calc(80vh - 2em);
   @media (min-width: 640px) {
-    max-height: calc(90vh);
+    max-height: calc(90vh - 2em);
   }
   @media (min-width: 768px) {
-    max-height: calc(90vh);
+    max-height: calc(90vh - 2em);
   }
 }
 
 .characters-container__grid {
+  margin: 0 auto;
+  max-width: 1280px;
   display: grid;
-  padding: 2em;
+  padding: 1em;
   height: 100%;
   flex-shrink: 0;
   grid-template-columns: repeat(1, minmax(0, 1fr));
