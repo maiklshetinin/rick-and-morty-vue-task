@@ -69,12 +69,10 @@ onMounted(async () => {
 
 .view-scrollbar {
   max-height: calc(100vh - 140px - 2em);
+
   @media (min-width: 640px) {
     max-height: calc(100vh - 70px - 2em);
   }
-  /* @media (min-width: 768px) {
-    max-height: calc(100vh - 70px - 2em);
-  } */
 }
 
 .characters-container__grid {

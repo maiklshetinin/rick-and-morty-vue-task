@@ -77,11 +77,12 @@ const handleLocation = () => {
 .form-container__row {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 1rem;
+  justify-content: start;
+
+  gap: 0;
   max-width: 1280px;
   margin: 0 auto;
-  height: 70px;
+  height: 140px;
   padding: 1em;
 }
 
@@ -91,10 +92,7 @@ const handleLocation = () => {
 
 @media (min-width: 240px) {
   .form-container__row {
-    flex-direction: column;
-    gap: 0;
     justify-content: start;
-    height: 140px;
   }
 }
 
@@ -112,10 +110,7 @@ const handleLocation = () => {
 
 @media (min-width: 768px) {
   .form-container__row {
-    flex-direction: row;
     justify-content: space-between;
-    gap: 1rem;
-    /* height: 70px; */
   }
   .form-container__item {
     width: 100%;
@@ -124,8 +119,6 @@ const handleLocation = () => {
 
 @media (min-width: 1024px) {
   .form-container__row {
-    flex-direction: row;
-    gap: 1rem;
     justify-content: start;
   }
 
