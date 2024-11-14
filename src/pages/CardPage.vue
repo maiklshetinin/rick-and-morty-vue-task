@@ -64,16 +64,17 @@ onMounted(async () => {
 <style>
 .header {
   background-color: var(--el-color-primary-light-9);
+  border-bottom: 1px solid var(--el-border-color);
 }
 
 .view-scrollbar {
-  max-height: calc(88vh - 2em);
+  max-height: calc(100vh - 140px - 2em);
   @media (min-width: 640px) {
-    max-height: calc(94vh - 2em);
+    max-height: calc(100vh - 70px - 2em);
   }
-  @media (min-width: 768px) {
-    max-height: calc(94vh - 2em);
-  }
+  /* @media (min-width: 768px) {
+    max-height: calc(100vh - 70px - 2em);
+  } */
 }
 
 .characters-container__grid {

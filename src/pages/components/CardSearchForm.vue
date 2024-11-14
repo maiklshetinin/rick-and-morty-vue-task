@@ -81,7 +81,7 @@ const handleLocation = () => {
   gap: 1rem;
   max-width: 1280px;
   margin: 0 auto;
-  height: 6vh;
+  height: 70px;
   padding: 1em;
 }
 
@@ -94,7 +94,7 @@ const handleLocation = () => {
     flex-direction: column;
     gap: 0;
     justify-content: start;
-    height: 12vh;
+    height: 140px;
   }
 }
 
@@ -102,7 +102,7 @@ const handleLocation = () => {
   .form-container__row {
     flex-direction: row;
     gap: 1rem;
-    height: 6vh;
+    height: 70px;
   }
 
   .form-container__item {
@@ -115,7 +115,7 @@ const handleLocation = () => {
     flex-direction: row;
     justify-content: space-between;
     gap: 1rem;
-    height: 6vh;
+    /* height: 70px; */
   }
   .form-container__item {
     width: 100%;
