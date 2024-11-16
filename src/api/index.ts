@@ -43,6 +43,7 @@ const api = async <T>(
       title: "Error",
       message: errorMessage,
       type: "error",
+      duration: 2000,
     });
     throw error;
   } finally {
