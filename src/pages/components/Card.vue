@@ -3,11 +3,14 @@ import { ICharacterData } from "../../types/api.ts";
 
 defineProps<{
   character: ICharacterData;
+  isNightMode: boolean;
 }>();
 </script>
 
 <template>
-  <div class="character-card">
+  <div
+    :class="['character-card', isNightMode ? 'character-card--night-mode' : '']"
+  >
     <div class="character-card__image-wrapper">
       <img
         :src="character.image"
@@ -18,7 +21,14 @@ defineProps<{
     </div>
 
     <div class="character-card__content">
-      <h2 class="character-card__name">{{ character.name }}</h2>
+      <h2
+        :class="[
+          'character-card__name',
+          isNightMode ? 'character-card__name--night-mode' : '',
+        ]"
+      >
+        {{ character.name }}
+      </h2>
       <p class="character-card__info">
         <span class="character-card__label">Status:</span>
         {{ character.status }}
@@ -48,7 +58,15 @@ defineProps<{
   background-color: var(--el-color-primary-light-9);
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgba(119, 119, 119, 0.1);
+  border: 1px solid var(--el-border-color);
   overflow: hidden;
+  transition: var(--el-transition-duration);
+}
+
+.character-card--night-mode {
+  border: 1px solid #4c4d4f;
+  background-color: transparent;
+  transition: var(--el-transition-duration);
 }
 
 .character-card__image-wrapper {
@@ -79,6 +97,12 @@ defineProps<{
   font-weight: bold;
   margin-bottom: 0.5rem;
   color: var(--el-color-primary);
+  transition: var(--el-transition-duration);
+}
+
+.character-card__name--night-mode {
+  filter: drop-shadow(2px 2px 6px #409eff);
+  transition: var(--el-transition-duration);
 }
 
 .character-card__info {

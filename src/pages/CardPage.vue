@@ -5,6 +5,7 @@ import { useStore } from "../store";
 import Card from "../pages/components/Card.vue";
 import InfiniteScroll from "../components/InfiniteScroll.vue";
 import CardSearchForm from "./components/CardSearchForm.vue";
+import { Sunny, Moon } from "@element-plus/icons-vue";
 
 //STORES
 const store = useStore();
@@ -16,6 +17,7 @@ const { getCharacters, getLocations } = store;
 
 //REFS
 const currentPage = ref(1);
+const isNightMode = ref(false);
 
 const filters = reactive({
   name: null,
@@ -45,16 +47,32 @@ onMounted(async () => {
 </script>
 
 <template>
-  <header class="header">
-    <CardSearchForm ref="cardSearchForm" v-model="filters" />
+  <header :class="['header', isNightMode ? 'night-mode' : '']">
+    <div class="header__controls">
+      <el-switch
+        v-model="isNightMode"
+        :active-action-icon="Moon"
+        :inactive-action-icon="Sunny"
+        style="position: absolute; right: 1rem; top: 0.25rem"
+      />
+      <CardSearchForm
+        ref="cardSearchForm"
+        v-model="filters"
+        :isNightMode="isNightMode"
+      />
+    </div>
   </header>
-  <el-scrollbar view-class="view-scrollbar">
+  <el-scrollbar
+    view-class="view-scrollbar"
+    :wrap-class="['wrapper-scrollbar', isNightMode ? 'night-mode' : '']"
+  >
     <InfiniteScroll :loadMore="loadMoreItems" :distance="10">
       <main class="characters-container__grid">
         <Card
           v-for="character in characters"
           :key="character.id"
           :character="character"
+          :isNightMode="isNightMode"
         />
       </main>
     </InfiniteScroll>
@@ -65,6 +83,25 @@ onMounted(async () => {
 .header {
   background-color: var(--el-color-primary-light-9);
   border-bottom: 1px solid var(--el-border-color);
+  transition: var(--el-transition-duration);
+}
+
+.night-mode {
+  border-bottom: 1px solid #4c4d4f;
+  background-color: var(--el-text-color-primary);
+  transition: var(--el-transition-duration);
+}
+
+.header__controls {
+  position: relative;
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 1em;
+}
+
+.wrapper-scrollbar {
+  height: 100vh;
+  transition: var(--el-transition-duration);
 }
 
 .view-scrollbar {
