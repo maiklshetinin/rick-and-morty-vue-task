@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
-import { onMounted, ref, reactive } from "vue";
-import { useStore } from "../store";
-import Card from "../pages/components/Card.vue";
-import InfiniteScroll from "../components/InfiniteScroll.vue";
-import CardSearchForm from "./components/CardSearchForm.vue";
+import { onMounted, ref, reactive, watch } from "vue";
+import { useStore } from "src/store";
+import Card from "src/pages/components/Card.vue";
+import InfiniteScroll from "src/components/InfiniteScroll.vue";
+import CardSearchForm from "src/pages/components/CardSearchForm.vue";
 import { Sunny, Moon } from "@element-plus/icons-vue";
 
 //STORES
@@ -40,6 +40,10 @@ const loadMoreItems = async () => {
   }
 };
 
+watch(isNightMode, (newValue) => {
+  document.body.classList.toggle("body--night-mode", newValue);
+});
+
 onMounted(async () => {
   await getCharacters(null, {}, currentPage.value);
   await getLocations();
@@ -47,7 +51,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <header :class="['header', isNightMode ? 'night-mode' : '']">
+  <header :class="['header', isNightMode ? 'header--night-mode' : '']">
     <div class="header__controls">
       <el-switch
         v-model="isNightMode"
@@ -62,10 +66,7 @@ onMounted(async () => {
       />
     </div>
   </header>
-  <el-scrollbar
-    view-class="view-scrollbar"
-    :wrap-class="['wrapper-scrollbar', isNightMode ? 'night-mode' : '']"
-  >
+  <el-scrollbar view-class="view-scrollbar">
     <InfiniteScroll :loadMore="loadMoreItems" :distance="10">
       <main class="characters-container__grid">
         <Card
@@ -86,9 +87,9 @@ onMounted(async () => {
   transition: var(--el-transition-duration);
 }
 
-.night-mode {
+.header--night-mode {
   border-bottom: 1px solid #4c4d4f;
-  background-color: var(--el-text-color-primary);
+  background-color: transparent;
   transition: var(--el-transition-duration);
 }
 
@@ -97,11 +98,6 @@ onMounted(async () => {
   margin: 0 auto;
   max-width: 1280px;
   padding: 1em;
-}
-
-.wrapper-scrollbar {
-  height: 100vh;
-  transition: var(--el-transition-duration);
 }
 
 .view-scrollbar {

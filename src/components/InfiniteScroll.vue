@@ -34,7 +34,6 @@ onMounted(async () => {
   if (observerTarget.value) {
     observer.observe(observerTarget.value); // Начинаем отслеживание
   }
-  console.log("threshold:", props.distance / 100);
 });
 
 onUnmounted(() => {
@@ -52,7 +51,6 @@ onUnmounted(() => {
 .observer-target {
   position: absolute;
   bottom: 0;
-
   height: 100vh;
 }
 </style>

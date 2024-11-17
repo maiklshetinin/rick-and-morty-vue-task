@@ -1,7 +1,7 @@
 import axios from "axios";
-import { ICharacterData, ILocation, ILocationData } from "../types/api.ts";
+import { ICharacterData, ILocation, ILocationData } from "src/types/api.ts";
 import { ElNotification } from "element-plus";
-import { useStore } from "../store/index.ts";
+import { useStore } from "src/store/index.ts";
 
 const instance = axios.create({
   baseURL: "https://rickandmortyapi.com/api",

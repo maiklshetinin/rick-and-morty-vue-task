@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useStore } from "../../store/index.ts";
+import { useStore } from "src/store/index.ts";
 import { storeToRefs } from "pinia";
 import debounce from "lodash.debounce";
 

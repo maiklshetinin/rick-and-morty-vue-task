@@ -7,7 +7,7 @@ import {
   getLocations,
 } from "../api";
 import { LoadingInstance } from "element-plus/es/components/loading/src/loading.mjs";
-import { ICharacterData, ILocation } from "../types/api";
+import { ICharacterData, ILocation } from "src/types/api";
 
 export interface State {
   characters: ICharacterData[];

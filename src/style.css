@@ -25,16 +25,19 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: rgb(255, 255, 255);
+  transition: var(--el-transition-duration);
+  user-select: none;
 }
 
-/* .card {
-  padding: 2em;
-} */
+.body--night-mode {
+  background-color: var(--el-text-color-primary);
+  transition: var(--el-transition-duration);
+}
 
 #app {
   /* max-width: 1280px; */
   margin: 0 auto;
-  width:100%
+  width: 100%;
 
   text-align: center;
 }

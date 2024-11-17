@@ -1,7 +1,88 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "compilerOptions": {
+    // Задает целевую версию JavaScript, в которую будет транслироваться код
+    "target": "es2020",
+
+    // Использовать стандарт ES для определения полей классов
+    "useDefineForClassFields": true,
+
+    // Определяет модульную систему, которая будет использоваться
+    "module": "ES2022",
+
+    // Библиотеки, которые будут доступны в проекте
+    "lib": [
+      "ES2020", // Поддержка ES2020
+      "DOM", // Поддержка объектов DOM
+      "DOM.Iterable" // Поддержка итерируемых объектов DOM
+    ],
+
+    // Пропуск проверки типов в библиотеках
+    "skipLibCheck": true,
+
+    /* Режим бандлера */
+    // Определяет стратегию разрешения модулей
+    "moduleResolution": "bundler",
+
+    // Разрешает импортировать файлы с расширением .ts
+    "allowImportingTsExtensions": true,
+
+    // Разрешает импортировать JSON-модули
+    "resolveJsonModule": true,
+
+    // Изолирует модули, предотвращая их взаимодействие
+    "isolatedModules": true,
+
+    // Не генерировать выходные файлы
+    "noEmit": true,
+
+    // Сохраняет JSX без трансформации
+    "jsx": "preserve",
+
+    /* Линтинг */
+    // Включает строгий режим TypeScript
+    "strict": true,
+
+    // Запрещает неиспользуемые локальные переменные
+    "noUnusedLocals": true,
+
+    // Запрещает неиспользуемые параметры функций
+    "noUnusedParameters": true,
+
+    // Запрещает неявные переходы в switch
+    "noFallthroughCasesInSwitch": true,
+
+    // Разрешает неявный тип any
+    "noImplicitAny": false,
+
+    // Разрешает использование JavaScript в проекте
+    "allowJs": true,
+
+    // Базовый URL для разрешения модулей
+    "baseUrl": ".",
+
+    // Определяет пути для разрешения модулей
+    "paths": {
+      "src/*": [
+        "src/*" // Указывает, что пути начинающиеся с src будут разрешаться к соответствующим файлам в папке src
+      ]
+    }
+  },
+  "vueCompilerOptions": {
+    // Отключает строгую проверку параметров инъекции в Vue
+    "strictInjectionParameters": false,
+
+    // Отключает строгие модификаторы доступа для входных свойств в Vue
+    "strictInputAccessModifiers": false,
+
+    // Отключает строгую проверку шаблонов в Vue
+    "strictTemplates": false
+  },
+  // Указывает файлы и папки, которые должны быть включены в компиляцию
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/**/*.scss"
+  ],
 }

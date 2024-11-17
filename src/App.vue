@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CardPage from "./pages/CardPage.vue";
+import CardPage from "src/pages/CardPage.vue";
 </script>
 
 <template>

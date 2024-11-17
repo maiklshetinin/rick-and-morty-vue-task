@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ICharacterData } from "../../types/api.ts";
+import { ICharacterData } from "src/types/api.ts";
 
 defineProps<{
   character: ICharacterData;
@@ -51,8 +51,8 @@ defineProps<{
 
 <style>
 .character-card {
-  max-height: auto;
   display: flex;
+  max-height: auto;
   flex-direction: column;
   flex-shrink: 0;
   background-color: var(--el-color-primary-light-9);
